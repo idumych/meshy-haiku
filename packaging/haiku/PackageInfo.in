@@ -16,7 +16,7 @@ copyrights		{
 	"2026 the Meshy for Haiku contributors"
 }
 licenses		{
-	"GPL-3.0-or-later"
+	"GPL-3.0"
 }
 urls			{
 	"https://github.com/idumych/meshy-haiku"
