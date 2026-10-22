@@ -1,0 +1,13 @@
+meshy (0.1.0-1) unstable; urgency=medium
+
+  * First release. Native C++ MeshCore mesh radio client for Haiku/Renku and
+    VitruvianOS.
+  * Core: protocol (70 frame builders, 30 parsers, SMAZ, Cayenne LPP), crypto
+    (SHA-256, HMAC, AES-128-ECB), SQLite storage, USB/UART and TCP transports,
+    engine state machine.
+  * Haiku UI: 10 views (connection, contacts, chat, channels, map, device,
+    repeater, sensor, packet log, settings).
+  * Verified against upstream Python implementation: 1,407 deterministic cases
+    match byte-for-byte.
+
+ -- Meshy maintainer <19998719+idumych@users.noreply.github.com>  Wed, 21 Oct 2026 12:00:00 -0700

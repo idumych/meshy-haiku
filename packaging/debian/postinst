@@ -1,0 +1,26 @@
+#!/bin/sh
+# postinst — restore BEOS xattrs dropped by dpkg on VitruvianOS.
+set -eu
+case "$1" in
+	configure)
+		if [ -f /usr/share/meshy/apps_attrs.tar ]; then
+			mkdir -p /system/apps/.meshy_attrs_tmp
+			tar xf /usr/share/meshy/apps_attrs.tar -C /system/apps/.meshy_attrs_tmp
+			if [ -f /system/apps/.meshy_attrs_tmp/system/apps/Meshy ]; then
+				mv /system/apps/.meshy_attrs_tmp/system/apps/Meshy /system/apps/Meshy
+			fi
+			rm -rf /system/apps/.meshy_attrs_tmp
+		fi
+		# Restore mimeset for the binary
+		if command -v mimeset >/dev/null 2>&1; then
+			mimeset -f /system/apps/Meshy
+		fi
+		;;
+abort-upgrade|abort-remove|abort-deconfigure)
+		;;
+*)
+		echo "postinst called with unknown argument \`$1'" >&2
+		exit 1
+		;;
+esac
+exit 0

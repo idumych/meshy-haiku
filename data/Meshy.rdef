@@ -15,7 +15,7 @@ resource app_version {
 	middle = 1,
 	minor  = 0,
 
-	variety = B_APPV_DEVELOPMENT,
+	variety = B_APPV_RELEASE,
 	internal = 0,
 
 	short_info = "Meshy",

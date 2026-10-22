@@ -1,0 +1,32 @@
+name			meshy
+version			@VERSION@
+architecture	@ARCH@
+summary			"Native MeshCore mesh radio client for Haiku"
+description		"Meshy for Haiku is a native C++ client for MeshCore mesh
+	radios. It reimplements the MeshCore protocol, crypto, storage and
+	transports in C++ and provides a native Haiku Interface Kit UI with no
+	Python, GTK or GLib at runtime.
+	
+	Connections are USB/UART serial or TCP (Wi-Fi bridge). The map view
+	draws nodes on a projection with a graticule. Chat history renders in a
+	styled read-only BTextView."
+packager		"@PACKAGER@"
+vendor			"Meshy for Haiku"
+copyrights		{
+	"2026 the Meshy for Haiku contributors"
+}
+licenses		{
+	"GPL-3.0-or-later"
+}
+urls			{
+	"https://github.com/idumych/meshy-haiku"
+}
+
+provides		{
+	meshy = @PVERSION@
+	app:Meshy = @PVERSION@
+	cmd:meshy
+}
+requires		{
+	haiku >= r1~beta6
+}
