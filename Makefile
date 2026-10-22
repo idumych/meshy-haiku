@@ -39,7 +39,7 @@ ifeq ($(UNAME),Haiku)
 
   PLATFORM     := Haiku
   MAKEFILE_ENGINE := /boot/system/data/build/scripts/makefile-engine
-  LIBS         := be network sqlite3 crypto root
+  LIBS         := -L/boot/system/develop/lib -lbe -lnetwork -lsqlite3 -lcrypto -lroot
   SRCS         := $(addprefix $(CORE_DIR)/,$(CORE_SRCS)) $(addprefix $(UI_DIR)/,$(UI_SRCS))
   LOCAL_INCLUDE_PATHS := $(CORE_DIR) $(UI_DIR)
   OPTIMIZE     := FULL
