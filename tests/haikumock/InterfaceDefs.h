@@ -1,0 +1,35 @@
+#ifndef MOCK_INTERFACEDEFS_H
+#define MOCK_INTERFACEDEFS_H
+#include <GraphicsDefs.h>
+enum color_which { B_PANEL_BACKGROUND_COLOR, B_PANEL_TEXT_COLOR, B_LIST_BACKGROUND_COLOR,
+    B_LIST_ITEM_TEXT_COLOR, B_LIST_SELECTED_BACKGROUND_COLOR, B_LIST_SELECTED_ITEM_TEXT_COLOR,
+    B_CONTROL_HIGHLIGHT_COLOR, B_DOCUMENT_TEXT_COLOR };
+rgb_color ui_color(color_which which);
+rgb_color tint_color(rgb_color c, float tint);
+#define B_LIGHTEN_1_TINT 0.8f
+#define B_LIGHTEN_2_TINT 0.7f
+#define B_DARKEN_1_TINT 1.2f
+#define B_DARKEN_2_TINT 1.4f
+enum orientation { B_HORIZONTAL, B_VERTICAL };
+#define B_ESCAPE 27
+#define B_MOUSE_WHEEL_CHANGED 'mwch'
+#define B_POINTER_EVENTS 1
+#define B_LOCK_WINDOW_FOCUS 2
+#define B_FOLLOW_ALL 0
+#define B_TRUNCATE_END 2
+#define B_WILL_DRAW 1
+#define B_FRAME_EVENTS 2
+#define B_NAVIGABLE 4
+#define B_FANCY_BORDER 1
+#define B_PLAIN_BORDER 2
+#define B_NO_BORDER 0
+#define B_SINGLE_SELECTION_LIST 0
+#define B_MULTIPLE_SELECTION_LIST 1
+#define B_CONTROL_ON 1
+#define B_CONTROL_OFF 0
+#define B_USE_DEFAULT_SPACING (-3.0f)
+#define B_USE_SMALL_SPACING (-4.0f)
+#define B_USE_WINDOW_INSETS (-5.0f)
+#define B_USE_SMALL_INSETS (-6.0f)
+#define B_USE_ITEM_SPACING (-7.0f)
+#endif
