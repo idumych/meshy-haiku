@@ -62,7 +62,7 @@ ifeq ($(UNAME),Haiku)
 
     obj/%.o: %.cpp
 	@mkdir -p obj
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -I$(CORE_DIR) -I$(UI_DIR) -c $< -o $@
 
     $(NAME): $(OBJS) $(RDEFS)
 	$(CXX) $(LDFLAGS) $(OBJS) -o $@ $(LIBS)
