@@ -60,6 +60,10 @@ ifeq ($(UNAME),Haiku)
 
     all: $(NAME)
 
+    obj/%.o: %.cpp
+    	@mkdir -p obj
+    	$(CXX) $(CXXFLAGS) -c $< -o $@
+
     $(NAME): $(OBJS) $(RDEFS)
 	$(CXX) $(LDFLAGS) $(OBJS) -o $@ $(LIBS)
 	$(RESOURCES)
