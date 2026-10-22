@@ -136,3 +136,6 @@ project uses and are **not** an API reference; they catch our own mistakes
 
 Meshy was created by Jiří Eischmann and the Meshy contributors. This port
 follows their protocol implementation closely and owes everything to it.
+
+Claude (Anthropic) assisted with this port's development — code generation,
+review, and testing — and is listed as a contributor.
