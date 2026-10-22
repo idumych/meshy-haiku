@@ -118,7 +118,6 @@ void ConnectionView::_UpdateEnabled()
     fConnectButton->SetEnabled(!connected && !busy);
     fDisconnectButton->SetEnabled(connected);
     fRefreshButton->SetEnabled(serial && !connected);
-    fPortList->SetEnabled(serial && !connected);
     fHostControl->SetEnabled(!serial && !connected);
 }
 
