@@ -42,6 +42,7 @@ mimeset -f "$PKG/apps/Meshy"
 ln -s ../apps/Meshy "$PKG/bin/meshy"
 ln -s ../../../../apps/Meshy "$PKG/data/deskbar/menu/Applications/Meshy"
 cp README.md LICENSE "$PKG/documentation/packages/meshy/"
+cp LICENSE "$PKG/LICENSE"
 
 sed -e "s/@VERSION@/${VERSION}-${REVISION}/g" -e "s/@PVERSION@/${VERSION}/g" \
 	-e "s/@ARCH@/${ARCH}/g" \

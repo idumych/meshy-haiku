@@ -15,6 +15,9 @@ vendor			"Meshy for Haiku"
 copyrights		{
 	"2026 the Meshy for Haiku contributors"
 }
+licenses		{
+	"GPL"
+}
 urls			{
 	"https://github.com/idumych/meshy-haiku"
 }
