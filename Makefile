@@ -60,11 +60,11 @@ ifeq ($(UNAME),Haiku)
     all: $(NAME)
 
     $(NAME): $(OBJS) $(RDEFS)
-    	$(CXX) $(LDFLAGS) $(OBJS) -o $@ $(LIBS)
-    	$(RESOURCES)
+	$(CXX) $(LDFLAGS) $(OBJS) -o $@ $(LIBS)
+	$(RESOURCES)
 
     clean:
-    	rm -rf obj $(NAME)
+	rm -rf obj $(NAME)
   endif
 
 else
@@ -137,11 +137,11 @@ ifeq ($(PLATFORM),Haiku)
 else ifeq ($(PLATFORM),none)
 
   all:
-  	@echo "Meshy needs Haiku, VitruvianOS, or Linux with Cosmoe."
-  	@echo "On V\OS it uses 'pkg-config vos' (vos-dev) or headers in $(VOS_HEADERS)."
-  	@echo "On Linux, Cosmoe installed under COSMOE_ROOT=$(COSMOE_ROOT)."
-  	@echo "(Core tests run anywhere: make tests)"
-  	@false
+	@echo "Meshy needs Haiku, VitruvianOS, or Linux with Cosmoe."
+	@echo "On V\OS it uses 'pkg-config vos' (vos-dev) or headers in $(VOS_HEADERS)."
+	@echo "On Linux, Cosmoe installed under COSMOE_ROOT=$(COSMOE_ROOT)."
+	@echo "(Core tests run anywhere: make tests)"
+	@false
 
 else
 
@@ -150,30 +150,30 @@ else
   all: check-platform $(NAME)
 
   check-platform:
-  	@true
+	@true
 
   obj/%.o: src/%.cpp src/*.h
-  	@mkdir -p obj
-  	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@mkdir -p obj
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
   $(NAME): $(OBJS) $(EXTRA_OBJS) $(RDEFS)
-  	$(CXX) $(LDFLAGS) $(OBJS) $(EXTRA_OBJS) -o $@ $(LIBS)
-  	$(RESOURCES)
-  	@if command -v mimeset >/dev/null 2>&1; then mimeset -f $@; fi
+	$(CXX) $(LDFLAGS) $(OBJS) $(EXTRA_OBJS) -o $@ $(LIBS)
+	$(RESOURCES)
+	@if command -v mimeset >/dev/null 2>&1; then mimeset -f $@; fi
 
   deb: all
-  	sh packaging/build-deb.sh
+	sh packaging/build-deb.sh
 
   hpkg:
-  	sh packaging/haiku/build-hpkg.sh
+	sh packaging/haiku/build-hpkg.sh
 
   install: all
-  	mkdir -p "$(INSTALL_DIR)"
-  	cp $(NAME) "$(INSTALL_DIR)/"
-  	@if command -v mimeset >/dev/null 2>&1; then mimeset -f "$(INSTALL_DIR)/$(NAME)"; fi
+	mkdir -p "$(INSTALL_DIR)"
+	cp $(NAME) "$(INSTALL_DIR)/"
+	@if command -v mimeset >/dev/null 2>&1; then mimeset -f "$(INSTALL_DIR)/$(NAME)"; fi
 
   clean:
-  	rm -rf obj $(NAME)
+	rm -rf obj $(NAME)
 
   .PHONY: all check-platform deb hpkg install clean
 endif
