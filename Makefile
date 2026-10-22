@@ -61,8 +61,8 @@ ifeq ($(UNAME),Haiku)
     all: $(NAME)
 
     obj/%.o: %.cpp
-    	@mkdir -p obj
-    	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@mkdir -p obj
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
     $(NAME): $(OBJS) $(RDEFS)
 	$(CXX) $(LDFLAGS) $(OBJS) -o $@ $(LIBS)
@@ -122,13 +122,13 @@ else
     RESOURCES    = true
 
     obj/Meshy.rsrc.o: $(RDEFS)
-    	@mkdir -p obj
-    	LD_LIBRARY_PATH=$(COSMOE_ROOT)/lib $(COSMOE_ROOT)/bin/rc \
-    		-o obj/Meshy.rsrc $(RDEFS)
-    	cd obj && ld -r -b binary Meshy.rsrc -o Meshy.rsrc.o
-    	objcopy --rename-section .data=.cosmoe_rsrc \
-    		--add-section .note.GNU-stack=/dev/null \
-    		--set-section-flags .note.GNU-stack=noload,readonly obj/Meshy.rsrc.o
+	@mkdir -p obj
+	LD_LIBRARY_PATH=$(COSMOE_ROOT)/lib $(COSMOE_ROOT)/bin/rc \
+		-o obj/Meshy.rsrc $(RDEFS)
+	cd obj && ld -r -b binary Meshy.rsrc -o Meshy.rsrc.o
+	objcopy --rename-section .data=.cosmoe_rsrc \
+		--add-section .note.GNU-stack=/dev/null \
+		--set-section-flags .note.GNU-stack=noload,readonly obj/Meshy.rsrc.o
 
   else
     PLATFORM    := none
