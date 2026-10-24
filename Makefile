@@ -73,7 +73,7 @@ ifeq ($(UNAME),Haiku)
   endif
 
 else
-  # VitruvianOS: the Haiku API on a Linux kernel.
+  # VitruvianOS: a BeOS-like OS based on Linux.
   ifeq ($(shell pkg-config --exists vos 2>/dev/null && echo yes),yes)
 
     PLATFORM    := VitruvianOS
